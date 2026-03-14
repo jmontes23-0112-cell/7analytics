@@ -7,8 +7,9 @@
     <title>Task 1 - Responsive Navigation - Jason C. Montes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -78,13 +79,14 @@
 <body class="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white min-h-screen">
 
     <!-- Navigation Arrows - Fixed Position -->
-    <div class="fixed top-1/2 -translate-y-1/2 z-50 left-6 right-6 lg:left-12 lg:right-12 xl:left-24 xl:right-24 pointer-events-none">
+    <div
+        class="fixed top-1/2 -translate-y-1/2 z-50 left-6 right-6 lg:left-12 lg:right-12 xl:left-24 xl:right-24 pointer-events-none">
         <div class="flex justify-between items-center pointer-events-auto">
             <!-- Previous Button -->
             <a href="task1.html" class="nav-btn p-4 rounded-2xl hover-scale shadow-2xl group" title="Previous Task">
                 <i class="fas fa-arrow-left text-2xl group-hover:-translate-x-1 transition-transform"></i>
             </a>
-            
+
             <!-- Next Button -->
             <a href="task3.html" class="nav-btn p-4 rounded-2xl hover-scale shadow-2xl group" title="Next Task">
                 <i class="fas fa-arrow-right text-2xl group-hover:translate-x-1 transition-transform"></i>
@@ -94,7 +96,8 @@
 
     <!-- Back to Portfolio Button -->
     <div class="fixed top-6 right-6 z-50">
-        <a href="index.html#projects" class="glass-effect p-4 rounded-xl hover-scale shadow-2xl hover:bg-white/20 transition-all duration-300">
+        <a href="index.html#projects"
+            class="glass-effect p-4 rounded-xl hover-scale shadow-2xl hover:bg-white/20 transition-all duration-300">
             <i class="fas fa-arrow-left mr-2"></i>
             <span class="font-semibold">Back to Portfolio</span>
         </a>
@@ -118,9 +121,10 @@
 
         <!-- Download Section -->
         <div class="text-center mb-16 px-8">
-            <a href="https://docs.google.com/spreadsheets/d/1tS9j3zLEseNsK88F-0qwRvj6G01HiXZh/edit?usp=sharing&ouid=107253335114572467377&rtpof=true&sd=true" target="_blank"
-               class="inline-flex items-center gap-3 px-8 py-4 download-btn rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-3xl mb-4"
-               download>
+            <a href="https://docs.google.com/spreadsheets/d/1tS9j3zLEseNsK88F-0qwRvj6G01HiXZh/edit?usp=sharing&ouid=107253335114572467377&rtpof=true&sd=true"
+                target="_blank"
+                class="inline-flex items-center gap-3 px-8 py-4 download-btn rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-3xl mb-4"
+                download>
                 <i class="fas fa-download text-xl"></i>
                 <span>Download Raw Files</span>
             </a>
@@ -131,8 +135,10 @@
             <div class="glass-effect rounded-3xl p-10 hover-scale">
                 <h3 class="text-3xl font-bold mb-8 gradient-text">Task Description</h3>
                 <div class="space-y-6 text-lg leading-relaxed">
-                    <p>Build a responsive navigation bar with smooth scrolling functionality. The navigation should include links to different sections of the page and feature a glassmorphism effect with backdrop blur.</p>
-                    
+                    <p>Build a responsive navigation bar with smooth scrolling functionality. The navigation should
+                        include links to different sections of the page and feature a glassmorphism effect with backdrop
+                        blur.</p>
+
                     <h4 class="text-xl font-semibold mt-8 mb-4 gradient-text">Key Requirements:</h4>
                     <ul class="list-disc list-inside space-y-2 text-purple-200 ml-4">
                         <li>Fixed navigation with backdrop blur effect</li>
@@ -144,105 +150,59 @@
                 </div>
             </div>
 
-            <!-- PDF Preview / Code Toggle -->
+            <!-- PDF Preview / Hide Toggle -->
             <div class="space-y-6">
                 <div class="glass-effect rounded-3xl p-8 hover-scale">
                     <div class="flex items-center justify-between mb-6">
-                        <h3 class="text-2xl font-bold gradient-text">PDF Preview</h3>
-                        <button id="toggleCode" class="text-purple-300 hover:text-white flex items-center gap-2 text-sm font-semibold hover-scale">
-                            <span id="codeToggleText">View Code</span>
-                            <i class="fas fa-code"></i>
+                        <h3 class="text-2xl font-bold gradient-text">Preview</h3>
+                        <button id="togglePreview"
+                            class="text-purple-300 hover:text-white flex items-center gap-2 text-sm font-semibold hover-scale">
+                            <span id="previewToggleText">Hide Preview</span>
+                            <i class="fas fa-eye-slash"></i>
                         </button>
                     </div>
-                    
-                    <div id="previewContent">
-                        <embed src="task1.pdf" 
-                               type="application/pdf" 
-                               class="pdf-viewer w-full h-96 rounded-2xl shadow-2xl" />
+
+                    <!-- PDF Preview Content (Hidden/Shown) -->
+                    <div id="previewContent" class="transition-all duration-300">
+                        <embed src="rsc/Jason.PNG" type="img"
+                            class="pdf-viewer w-full h-96 rounded-2xl shadow-2xl" />
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Code Preview (Hidden by default) -->
-        <div id="codePreview" class="glass-effect rounded-3xl p-8 mt-12 hidden hover-scale">
-            <h3 class="text-2xl font-bold mb-6 gradient-text">Source Code</h3>
-            <div class="code-preview rounded-2xl p-6 font-mono text-xs overflow-x-auto">
-                <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Responsive Navigation&lt;/title&gt;
-    &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body class="bg-gradient-to-br from-purple-900 to-indigo-900"&gt;
-    
-    &lt;nav class="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/20"&gt;
-        &lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
-            &lt;div class="flex justify-between items-center py-4"&gt;
-                &lt;div class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"&gt;
-                    Jason C. Montes
-                &lt;/div&gt;
-                &lt;div class="hidden md:flex space-x-8"&gt;
-                    &lt;a href="#home" class="hover:text-purple-300 transition-colors"&gt;Home&lt;/a&gt;
-                    &lt;a href="#about" class="hover:text-purple-300 transition-colors"&gt;About&lt;/a&gt;
-                    &lt;a href="#projects" class="hover:text-purple-300 transition-colors"&gt;Projects&lt;/a&gt;
-                    &lt;a href="#contact" class="hover:text-purple-300 transition-colors"&gt;Contact&lt;/a&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/nav&gt;
-
-    &lt;script&gt;
-        // Smooth scrolling navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor =&gt; {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    &lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
             </div>
         </div>
     </div>
 
     <script>
-        // Toggle code preview
-        document.getElementById('toggleCode').addEventListener('click', function() {
-            const codePreview = document.getElementById('codePreview');
-            const toggleText = document.getElementById('codeToggleText');
+        // Toggle PDF preview visibility
+        document.getElementById('togglePreview').addEventListener('click', function () {
             const previewContent = document.getElementById('previewContent');
-            
-            if (codePreview.classList.contains('hidden')) {
-                codePreview.classList.remove('hidden');
-                previewContent.style.display = 'none';
-                toggleText.textContent = 'View PDF';
-            } else {
-                codePreview.classList.add('hidden');
+            const toggleText = document.getElementById('previewToggleText');
+            const toggleIcon = this.querySelector('i');
+
+            if (previewContent.style.display === 'none' || !previewContent.style.display) {
+                // Show preview
                 previewContent.style.display = 'block';
-                toggleText.textContent = 'View Code';
+                toggleText.textContent = 'Hide Preview';
+                toggleIcon.className = 'fas fa-eye-slash';
+            } else {
+                // Hide preview
+                previewContent.style.display = 'none';
+                toggleText.textContent = 'Show Preview';
+                toggleIcon.className = 'fas fa-eye';
             }
         });
 
         // Download tracking (optional)
-        document.querySelector('.download-btn').addEventListener('click', function() {
+        document.querySelector('.download-btn').addEventListener('click', function () {
             console.log('Task downloaded');
         });
 
         // Navigation arrow animations
         document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
+            btn.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-3px) scale(1.05)';
             });
-            btn.addEventListener('mouseleave', function() {
+            btn.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
