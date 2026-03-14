@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1 - Responsive Navigation - Jason C. Montes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hover-scale {
+            transition: all 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #c084fc 0%, #a78bfa 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            transform: translateY(-2px);
+        }
+
+        .code-preview {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .pdf-viewer {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white min-h-screen">
+
+    <!-- Back to Portfolio Button -->
+    <div class="fixed top-6 right-6 z-50">
+        <a href="portfolio.html#projects" class="glass-effect p-4 rounded-xl hover-scale shadow-2xl hover:bg-white/20 transition-all duration-300">
+            <i class="fas fa-arrow-left mr-2"></i>
+            <span class="font-semibold">Back to Portfolio</span>
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-12 px-6 lg:px-12 max-w-6xl mx-auto">
+        <!-- Task Header -->
+        <div class="text-center mb-20">
+            <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-6">
+                <!-- UPDATE: Task Title -->
+                Practice Task 2
+            </h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full mb-8"></div>
+            <div class="flex items-center justify-center gap-2 text-purple-300 text-sm mb-8">
+                <i class="fas fa-tag"></i>
+                <!-- UPDATE: Task Category -->
+                <span>Practice Tasks</span>
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="text-center mb-16 px-8">
+            <a href="https://docs.google.com/spreadsheets/d/1tS9j3zLEseNsK88F-0qwRvj6G01HiXZh/edit?usp=sharing&ouid=107253335114572467377&rtpof=true&sd=true" target="_blank"
+               class="inline-flex items-center gap-3 px-8 py-4 download-btn rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-3xl mb-4"
+               download>
+                <i class="fas fa-download text-xl"></i>
+                <span>Download Raw Files</span>
+            </a>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Task Description -->
+            <div class="glass-effect rounded-3xl p-10 hover-scale">
+                <h3 class="text-3xl font-bold mb-8 gradient-text">Task Description</h3>
+                <!-- UPDATE: Task Description -->
+                <div class="space-y-6 text-lg leading-relaxed">
+                    <p>Build a responsive navigation bar with smooth scrolling functionality. The navigation should include links to different sections of the page and feature a glassmorphism effect with backdrop blur.</p>
+                    
+                    <h4 class="text-xl font-semibold mt-8 mb-4 gradient-text">Key Requirements:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-purple-200 ml-4">
+                        <li>Fixed navigation with backdrop blur effect</li>
+                        <li>Smooth scrolling between sections</li>
+                        <li>Responsive design for mobile and desktop</li>
+                        <li>Gradient text effects for branding</li>
+                        <li>Hover animations and transitions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PDF Preview / Code Toggle -->
+            <div class="space-y-6">
+                <div class="glass-effect rounded-3xl p-8 hover-scale">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold gradient-text">PDF Preview</h3>
+                        <button id="toggleCode" class="text-purple-300 hover:text-white flex items-center gap-2 text-sm font-semibold hover-scale">
+                            <span id="codeToggleText">View Code</span>
+                            <i class="fas fa-code"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- UPDATE: PDF Preview -->
+                    <div id="previewContent">
+                        <!-- Option 1: Embed PDF directly -->
+                        <embed src="<!-- UPDATE: PDF path -->task1.pdf" 
+                               type="application/pdf" 
+                               class="pdf-viewer w-full h-96 rounded-2xl shadow-2xl" />
+                        
+                        <!-- Option 2: PDF.js viewer (uncomment if needed) -->
+                        <!-- <iframe src="https://docs.google.com/gview?url=<!-- UPDATE: PDF path -->task1.pdf&embedded=true" 
+                                   class="w-full h-96 rounded-2xl shadow-2xl pdf-viewer"></iframe> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Preview (Hidden by default) -->
+        <div id="codePreview" class="glass-effect rounded-3xl p-8 mt-12 hidden hover-scale">
+            <h3 class="text-2xl font-bold mb-6 gradient-text">Source Code</h3>
+            <!-- UPDATE: Your actual code here -->
+            <div class="code-preview rounded-2xl p-6 font-mono text-xs overflow-x-auto">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Responsive Navigation&lt;/title&gt;
+    &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class="bg-gradient-to-br from-purple-900 to-indigo-900"&gt;
+    
+    &lt;nav class="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/20"&gt;
+        &lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"&gt;
+            &lt;div class="flex justify-between items-center py-4"&gt;
+                &lt;div class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"&gt;
+                    Jason C. Montes
+                &lt;/div&gt;
+                &lt;div class="hidden md:flex space-x-8"&gt;
+                    &lt;a href="#home" class="hover:text-purple-300 transition-colors"&gt;Home&lt;/a&gt;
+                    &lt;a href="#about" class="hover:text-purple-300 transition-colors"&gt;About&lt;/a&gt;
+                    &lt;a href="#projects" class="hover:text-purple-300 transition-colors"&gt;Projects&lt;/a&gt;
+                    &lt;a href="#contact" class="hover:text-purple-300 transition-colors"&gt;Contact&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;script&gt;
+        // Smooth scrolling navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor =&gt; {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle code preview
+        document.getElementById('toggleCode').addEventListener('click', function() {
+            const codePreview = document.getElementById('codePreview');
+            const toggleText = document.getElementById('codeToggleText');
+            const previewContent = document.getElementById('previewContent');
+            
+            if (codePreview.classList.contains('hidden')) {
+                codePreview.classList.remove('hidden');
+                previewContent.style.display = 'none';
+                toggleText.textContent = 'View PDF';
+            } else {
+                codePreview.classList.add('hidden');
+                previewContent.style.display = 'block';
+                toggleText.textContent = 'View Code';
+            }
+        });
+
+        // Download tracking (optional)
+        document.querySelector('.download-btn').addEventListener('click', function() {
+            console.log('Task downloaded');
+        });
+    </script>
+
+</body>
+
+</html>
