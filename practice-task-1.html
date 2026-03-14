@@ -47,6 +47,20 @@
             transform: translateY(-2px);
         }
 
+        .nav-btn {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(139, 92, 246, 0.6));
+            transform: translateY(-3px) scale(1.05);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+        }
+
         .code-preview {
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -63,6 +77,21 @@
 
 <body class="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white min-h-screen">
 
+    <!-- Navigation Arrows - Fixed Position -->
+    <div class="fixed top-1/2 -translate-y-1/2 z-50 left-6 right-6 lg:left-12 lg:right-12 xl:left-24 xl:right-24 pointer-events-none">
+        <div class="flex justify-between items-center pointer-events-auto">
+            <!-- Previous Button -->
+            <a href="task1.html" class="nav-btn p-4 rounded-2xl hover-scale shadow-2xl group" title="Previous Task">
+                <i class="fas fa-arrow-left text-2xl group-hover:-translate-x-1 transition-transform"></i>
+            </a>
+            
+            <!-- Next Button -->
+            <a href="task3.html" class="nav-btn p-4 rounded-2xl hover-scale shadow-2xl group" title="Next Task">
+                <i class="fas fa-arrow-right text-2xl group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+
     <!-- Back to Portfolio Button -->
     <div class="fixed top-6 right-6 z-50">
         <a href="index.html#projects" class="glass-effect p-4 rounded-xl hover-scale shadow-2xl hover:bg-white/20 transition-all duration-300">
@@ -76,14 +105,14 @@
         <!-- Task Header -->
         <div class="text-center mb-20">
             <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-6">
-                <!-- UPDATE: Task Title -->
                 Practice Task 2
             </h1>
             <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full mb-8"></div>
             <div class="flex items-center justify-center gap-2 text-purple-300 text-sm mb-8">
                 <i class="fas fa-tag"></i>
-                <!-- UPDATE: Task Category -->
-                <span>Practice Tasks</span>
+                <a href="#">Practice Tasks</a>
+                <i class="fas fa-tag"></i>
+                <a href="#">Midterm Tasks</a>
             </div>
         </div>
 
@@ -101,7 +130,6 @@
             <!-- Task Description -->
             <div class="glass-effect rounded-3xl p-10 hover-scale">
                 <h3 class="text-3xl font-bold mb-8 gradient-text">Task Description</h3>
-                <!-- UPDATE: Task Description -->
                 <div class="space-y-6 text-lg leading-relaxed">
                     <p>Build a responsive navigation bar with smooth scrolling functionality. The navigation should include links to different sections of the page and feature a glassmorphism effect with backdrop blur.</p>
                     
@@ -127,16 +155,10 @@
                         </button>
                     </div>
                     
-                    <!-- UPDATE: PDF Preview -->
                     <div id="previewContent">
-                        <!-- Option 1: Embed PDF directly -->
-                        <embed src="<!-- UPDATE: PDF path -->task1.pdf" 
+                        <embed src="task1.pdf" 
                                type="application/pdf" 
                                class="pdf-viewer w-full h-96 rounded-2xl shadow-2xl" />
-                        
-                        <!-- Option 2: PDF.js viewer (uncomment if needed) -->
-                        <!-- <iframe src="https://docs.google.com/gview?url=<!-- UPDATE: PDF path -->task1.pdf&embedded=true" 
-                                   class="w-full h-96 rounded-2xl shadow-2xl pdf-viewer"></iframe> -->
                     </div>
                 </div>
             </div>
@@ -145,7 +167,6 @@
         <!-- Code Preview (Hidden by default) -->
         <div id="codePreview" class="glass-effect rounded-3xl p-8 mt-12 hidden hover-scale">
             <h3 class="text-2xl font-bold mb-6 gradient-text">Source Code</h3>
-            <!-- UPDATE: Your actual code here -->
             <div class="code-preview rounded-2xl p-6 font-mono text-xs overflow-x-auto">
                 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -214,6 +235,16 @@
         // Download tracking (optional)
         document.querySelector('.download-btn').addEventListener('click', function() {
             console.log('Task downloaded');
+        });
+
+        // Navigation arrow animations
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
     </script>
 
